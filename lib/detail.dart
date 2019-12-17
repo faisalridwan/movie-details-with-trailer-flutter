@@ -11,6 +11,7 @@ import 'package:movie_details/model/popular_movies.dart';
 import 'package:movie_details/model/trailer_movies.dart';
 import 'package:flutter/src/material/flat_button.dart';
 import 'package:youtube_player/youtube_player.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class MovieDetail extends StatefulWidget {
   final Popular movie;
@@ -128,7 +129,7 @@ class _MovieDetailState extends State<MovieDetail> {
                           return Text('Error!!!!');
                         } else {
                           print('Lagi Loading...');
-                          return CircularProgressIndicator();
+                          return Center(child: SpinKitHourGlass(color: Colors.black));
                         }
                       },
                     ),
@@ -141,7 +142,14 @@ class _MovieDetailState extends State<MovieDetail> {
             return Text('Error!!!!');
           } else {
             print('Lagi Loading...');
-            return CircularProgressIndicator();
+            return Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SpinKitHourGlass(color: Colors.black),
+              Text('Loading...!')
+            ],
+            );
           }
         },
       ),
