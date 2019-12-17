@@ -1,0 +1,1 @@
+import 'package:flutter/material.dart';const putih = const Color(0xffffffff);const hitam = const Color(0xff000000);const biru = const Color(0xFF32407b);

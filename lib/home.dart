@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
                                     width: 20,
                                     height: 20,
                                     decoration: BoxDecoration(
-                                        color: Colors.white.withOpacity(0.5),
+                                        color: putih.withOpacity(0.5),
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10))),
                                   ),
@@ -83,7 +83,7 @@ class _HomeState extends State<Home> {
                                   margin: EdgeInsets.only(top: 150, right: 90),
                                   alignment: Alignment.center,
                                   decoration: BoxDecoration(
-                                      color: Color(0xFF32407b),
+                                      color: biru,
                                       borderRadius: BorderRadius.only(
                                           topLeft: Radius.circular(10),
                                           topRight: Radius.circular(10),
@@ -93,7 +93,7 @@ class _HomeState extends State<Home> {
                                       ('${popular.results[index].title.toString()}').toString(),
                                       style: TextStyle(
                                         fontSize: 15,
-                                        color: Colors.white,
+                                        color: putih,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -243,7 +243,7 @@ class _HomeState extends State<Home> {
                 margin: EdgeInsets.only(top: 184),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    color: Color(0xFF32407b),
+                    color: biru,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(15),
                         bottomRight: Radius.circular(15))),
