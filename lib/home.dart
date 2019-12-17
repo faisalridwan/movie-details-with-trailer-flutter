@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'String/color.dart';
 import 'detail.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:movie_details/data/api_provider.dart';
@@ -30,9 +31,9 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: putih,
         centerTitle: true,
-        title: Text('Movies App', style: TextStyle(color: Colors.black)),
+        title: Text('Movies Trailer App', style: TextStyle(color: Colors.black)),
       ),
       body: FutureBuilder(
         future: popularMovies,
@@ -77,7 +78,27 @@ class _HomeState extends State<Home> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10))),
                                   ),
-                                )
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: 150, right: 90),
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                      color: Color(0xFF32407b),
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          topRight: Radius.circular(10),
+                                          bottomRight: Radius.circular(10))),
+                                  child: Container(
+                                    child: Text(
+                                      ('${popular.results[index].title.toString()}').toString(),
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           );
@@ -222,13 +243,13 @@ class _HomeState extends State<Home> {
                 margin: EdgeInsets.only(top: 184),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    color: Colors.indigo,
+                    color: Color(0xFF32407b),
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(15),
                         bottomRight: Radius.circular(15))),
                 child: Container(
                   child: Text(
-                    ('Beli Sekarang').toString(),
+                    ('Tonton Trailer').toString(),
                     style: TextStyle(
                       fontSize: 15,
                       color: Colors.white,
@@ -236,7 +257,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

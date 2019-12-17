@@ -1,0 +1,1 @@
+import 'package:flutter/material.dart';const putih = const Color(0xffffffff);

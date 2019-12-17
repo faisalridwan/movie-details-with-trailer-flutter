@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_video_player/flutter_simple_video_player.dart';
 import 'package:movie_details/model/detail_movies.dart';
@@ -55,13 +56,24 @@ class _MovieDetailState extends State<MovieDetail> {
                     imageUrl: '$baseUrlImage${detail.backdropPath.toString()}',
                   ),
                 ),
+
+                Container(
+                  width: double.infinity,
+                    margin: EdgeInsets.only(left: 20, top: 20),
+                    child: Text(
+                      'Description : ',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+
+                    )),
                 Container(
                   padding: EdgeInsets.all(16),
-                  child: Text('${detail.overview.toString()}'),
+                  child: Text('${detail.overview.toString()}',textAlign: TextAlign.justify),
                 ),
                 Container(
                   padding: EdgeInsets.all(16),
-                  child: Text('TRAILER', style: TextStyle(fontWeight: FontWeight.bold)),
+                  child: Text('TRAILER',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 ),
                 Expanded(
                   child: Container(
@@ -77,7 +89,7 @@ class _MovieDetailState extends State<MovieDetail> {
                             itemBuilder: (context, index) {
                               return Container(
                                 margin: EdgeInsets.only(top: 20, left: 10),
-                                height: 50,
+                                height: 60,
 //                                decoration: new BoxDecoration(
 //                                    boxShadow: [
 //                                      BoxShadow(
@@ -112,7 +124,9 @@ class _MovieDetailState extends State<MovieDetail> {
                                             onPressed: () {
                                               showDialog(
                                                 context: context,
-                                                builder: (_) => FunkyOverlay(trailer: trailer.results[index]),
+                                                builder: (_) => FunkyOverlay(
+                                                    trailer:
+                                                        trailer.results[index]),
                                               );
                                             },
                                             icon: Icon(Icons.play_arrow),
@@ -129,7 +143,8 @@ class _MovieDetailState extends State<MovieDetail> {
                           return Text('Error!!!!');
                         } else {
                           print('Lagi Loading...');
-                          return Center(child: SpinKitHourGlass(color: Colors.black));
+                          return Center(
+                              child: SpinKitHourGlass(color: Colors.black));
                         }
                       },
                     ),
@@ -145,10 +160,10 @@ class _MovieDetailState extends State<MovieDetail> {
             return Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SpinKitHourGlass(color: Colors.black),
-              Text('Loading...!')
-            ],
+              children: <Widget>[
+                SpinKitHourGlass(color: Colors.black),
+                Text('Loading...!')
+              ],
             );
           }
         },
