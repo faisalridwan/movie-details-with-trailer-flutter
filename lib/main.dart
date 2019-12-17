@@ -13,7 +13,7 @@ class MoviewApp extends StatelessWidget {
     return MaterialApp(
       title: 'Movies Trailer App',
       theme: ThemeData(
-        primarySwatch: Colors.white,
+        primarySwatch: Colors.red,
       ),
       home: Home(),
     );

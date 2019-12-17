@@ -137,7 +137,7 @@ class _HomeState extends State<Home> {
                   ],
                 ),
                 Container(
-                  height: 250,
+                  height: 300,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: snapshot.data.results.length,
@@ -157,6 +157,45 @@ class _HomeState extends State<Home> {
                             ));
                           });
                     },
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.only(top: 5),
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                    // Where the linear gradient begins and ends
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    // Add one stop for each color. Stops should increase from 0 to 1
+                    colors: [
+                      // Colors are easy thanks to Flutter's Colors class.
+                      Colors.yellow[300],
+                      Colors.yellow[900],
+                    ],
+                  )),
+                  child: Container(
+                    margin: EdgeInsets.only(left: 15),
+                    padding: EdgeInsets.all(5),
+                    child: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.card_giftcard,
+                          size: 15,
+                          color: putih,
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(left: 5),
+                          child: Text(
+                            'BAGIKAN KODE & DAPATKAN POIN ',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                                color: putih),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -185,95 +224,114 @@ class _HomeState extends State<Home> {
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.all(5),
-        child: Card(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(15))),
-          child: Stack(
-            children: <Widget>[
-              Container(
-
-                  // imageUrl: '$baseUrlImage$poster', fit: BoxFit.cover,
-
-                  child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: CachedNetworkImage(
-                  imageUrl: '$baseUrlImage$poster',
-                  imageBuilder: (context, imageProvider) => Container(
-                    width: 150,
-                    height: 310,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: imageProvider,
-                        fit: BoxFit.cover,
+        width: 150,
+        child: Column(
+          children: <Widget>[
+            Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: Container(
+                height: 230,
+                child: Stack(
+                  children: <Widget>[
+                    Container(
+                        child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: CachedNetworkImage(
+                        imageUrl: '$baseUrlImage$poster',
+                        imageBuilder: (context, imageProvider) => Container(
+                          width: 150,
+                          height: 360,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: imageProvider,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        placeholder: (context, url) =>
+                            CircularProgressIndicator(),
+                        errorWidget: (context, url, error) => Container(
+                          width: 25,
+                          height: 25,
+                          child: Center(
+                            child: Icon(Icons.error),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  placeholder: (context, url) => CircularProgressIndicator(),
-                  errorWidget: (context, url, error) => Container(
-                    width: 25,
-                    height: 25,
-                    child: Center(
-                      child: Icon(Icons.error),
-                    ),
-                  ),
-                ),
-              )),
-              index % 2 == 1 //if dalam container
-                  ? Container(
+                    )),
+                    index % 2 == 1 //if dalam container
+                        ? Container(
+                            child: Container(
+                              child: Text(
+                                ('PRE-SALE').toString(),
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              margin: EdgeInsets.all(6),
+                              padding: EdgeInsets.all(3),
+                              alignment: Alignment.center,
+                              width: 80,
+                              height: 20,
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    // Where the linear gradient begins and ends
+                                    begin: Alignment.topRight,
+                                    end: Alignment.bottomLeft,
+                                    // Add one stop for each color. Stops should increase from 0 to 1
+                                    colors: [
+                                      // Colors are easy thanks to Flutter's Colors class.
+                                      Colors.yellow[800],
+                                      Colors.yellow[400],
+                                    ],
+                                  ),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
+                            ),
+                          )
+                        : Container(),
+                    Container(
+                      width: 150,
+                      height: 50,
+                      margin: EdgeInsets.only(top: 184),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: biru,
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10))),
                       child: Container(
                         child: Text(
-                          ('PRE-SALE').toString(),
+                          ('Tonton Trailer').toString(),
                           style: TextStyle(
-                            fontSize: 13,
+                            fontSize: 15,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        margin: EdgeInsets.all(6),
-                        padding: EdgeInsets.all(3),
-                        alignment: Alignment.center,
-                        width: 80,
-                        height: 20,
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              // Where the linear gradient begins and ends
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft,
-                              // Add one stop for each color. Stops should increase from 0 to 1
-                              colors: [
-                                // Colors are easy thanks to Flutter's Colors class.
-                                Colors.yellow[800],
-                                Colors.yellow[400],
-                              ],
-                            ),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
                       ),
-                    )
-                  : Container(),
-              Container(
-                width: 150,
-                height: 50,
-                margin: EdgeInsets.only(top: 184),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    color: biru,
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(15),
-                        bottomRight: Radius.circular(15))),
-                child: Container(
-                  child: Text(
-                    ('Tonton Trailer').toString(),
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
                     ),
-                  ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 10),
+
+              child: Text(
+                (title),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 17,
+
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
