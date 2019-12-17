@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
-import 'String/color.dart';
+import 'string/color.dart';
 import 'detail.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:movie_details/data/api_provider.dart';
@@ -33,7 +32,8 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: putih,
         centerTitle: true,
-        title: Text('Movies Trailer App', style: TextStyle(color: Colors.black)),
+        title:
+            Text('Movies Trailer App', style: TextStyle(color: Colors.black)),
       ),
       body: FutureBuilder(
         future: popularMovies,
@@ -46,6 +46,19 @@ class _HomeState extends State<Home> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
+                    margin: EdgeInsets.only(top: 10, right: 10, left: 10),
+                    child: TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        contentPadding:
+                            EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                        border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.search),
+                        labelText: 'Search Judul Movie',
+                      ),
+                    )),
+                Container(
+                    margin: EdgeInsets.only(top: 10),
                     height: 200,
                     width: 400,
                     child: CarouselSlider(
@@ -90,7 +103,8 @@ class _HomeState extends State<Home> {
                                           bottomRight: Radius.circular(10))),
                                   child: Container(
                                     child: Text(
-                                      ('${popular.results[index].title.toString()}').toString(),
+                                      ('${popular.results[index].title.toString()}')
+                                          .toString(),
                                       style: TextStyle(
                                         fontSize: 15,
                                         color: putih,
@@ -204,7 +218,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               )),
-              index % 2 == 1  //if dalam container
+              index % 2 == 1 //if dalam container
                   ? Container(
                       child: Container(
                         child: Text(

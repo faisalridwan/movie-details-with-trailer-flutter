@@ -1,16 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_simple_video_player/flutter_simple_video_player.dart';
 import 'package:movie_details/model/detail_movies.dart';
-import 'package:video_player/video_player.dart';
-
-import 'detail.dart';
-import 'home.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:movie_details/data/api_provider.dart';
 import 'package:movie_details/model/popular_movies.dart';
 import 'package:movie_details/model/trailer_movies.dart';
-import 'package:flutter/src/material/flat_button.dart';
 import 'package:youtube_player/youtube_player.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -56,18 +50,17 @@ class _MovieDetailState extends State<MovieDetail> {
                     imageUrl: '$baseUrlImage${detail.backdropPath.toString()}',
                   ),
                 ),
-
                 Container(
-                  width: double.infinity,
+                    width: double.infinity,
                     margin: EdgeInsets.only(left: 20, top: 20),
                     child: Text(
                       'Description : ',
                       style: TextStyle(fontWeight: FontWeight.bold),
-
                     )),
                 Container(
                   padding: EdgeInsets.all(16),
-                  child: Text('${detail.overview.toString()}',textAlign: TextAlign.justify),
+                  child: Text('${detail.overview.toString()}',
+                      textAlign: TextAlign.justify),
                 ),
                 Container(
                   padding: EdgeInsets.all(16),
@@ -90,19 +83,6 @@ class _MovieDetailState extends State<MovieDetail> {
                               return Container(
                                 margin: EdgeInsets.only(top: 20, left: 10),
                                 height: 60,
-//                                decoration: new BoxDecoration(
-//                                    boxShadow: [
-//                                      BoxShadow(
-//                                        color: Colors.black,
-//                                        blurRadius: 12.0, // has the effect of softening the shadow
-//                                        spreadRadius: 0.1, // has the effect of extending the shadow
-//                                        offset: Offset(
-//                                          0.01, // horizontal, move right 10
-//                                          0.01, // vertical, move down 10
-//                                        ),
-//                                      )
-//                                    ],
-//                                ),
                                 child: Card(
                                   child: Row(
                                     crossAxisAlignment:

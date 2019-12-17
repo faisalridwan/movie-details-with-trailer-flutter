@@ -11,9 +11,9 @@ class MoviewApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Movies App',
+      title: 'Movies Trailer App',
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: Colors.white,
       ),
       home: Home(),
     );
